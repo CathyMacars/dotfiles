@@ -1,0 +1,6 @@
+source ~/.path
+export PATH
+export EDITOR='subl -w'
+export BUNDLE_EDITOR="subl"
+export LSCOLORS=axaxaxaxaxaxaxaxaxaxax
+export JAVA_HOME="$(/usr/libexec/java_home)"

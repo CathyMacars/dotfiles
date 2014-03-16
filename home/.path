@@ -1,0 +1,4 @@
+# PATH like a bawss [https://github.com/paulirish/dotfiles]
+PATH=/usr/local/bin:$PATH # homebrew
+PATH=$PATH:$HOME
+

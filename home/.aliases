@@ -1,0 +1,30 @@
+# Function dependant
+alias mkdir=mkcd
+alias ls=list
+alias touch=touchslime
+alias cd=changedir
+alias rm=remove
+alias pkgup=pkgupfunc
+
+# Change dir
+alias ~='cd ~'
+alias home='cd ~'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+# App specific/dependant
+alias slime=subl
+alias g=git
+alias npmls=npmlist # broken → 'npm ls --depth=0 "$@" 2>/dev/null' / using npm-list instead
+alias hs=homesick
+
+# Sensitive stuff
+source ~/.extra
+
+# Project specific
+alias cdastrea='cd ~/Sites/astrea'
+alias cdcathy='cd ~/Sites/cathymacars'
+alias cdfine='cd ~/Sites/finedesign'
+alias cddot='cd ~/Sites/dotfiles'
