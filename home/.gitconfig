@@ -2,47 +2,94 @@
 	name = Catarina
 	email = c.macars@gmail.com
 
-[alias]
-	a = add
-	ad = add
-	b = branch
-	br = branch
-	ch = checkout
-	cl = clone
-	cm = commit
-	d = difftool
-	df = difftool
-	dt = difftool
-	li = list
-	lg = log --graph --pretty=format:'%C(yellow)[%h] %C(cyan)%an %Cgreen(%cr) %C(reset)→ %s'
-	pl = pull
-	ps = push
-	r = rebase
-	rb = rebase
-	sh = stash
-	sm = submodule
-	st = status
-
-[push]
-	default = simple
-
 [github]
 	user = CathyMacars
 
-[credential]
-	helper = osxkeychain
+[alias]
+	a = add
+	b = branch
+	br = branch
 
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[diff]
-	tool = Kaleidoscope
-[difftool]
-	prompt = false
+	c = commit
+	co = commit
+	ch = checkout
+	cl = clone
 
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
-[mergetool]
-	prompt = false
-[merge]
-	tool = Kaleidoscope
+	d = diff
+	di = diff
+	dt = difftool
+
+	i = init
+	in = init
+	l = log --graph --pretty=format:'%C(yellow)[%h] %C(cyan)%an %C(green)(%cr) %C(reset)%s'
+	lg = log --graph --pretty=format:'%C(yellow)[%h] %C(cyan)%an %C(green)(%cr) %C(reset)%s'
+
+	m = merge
+	mr = merge
+	mt = mergetool
+
+	pl = pull
+	ps = push
+
+	r = rebase
+	rb = rebase
+	rm = remote
+	rv = revert
+	rs = reset
+
+	s = status
+	st = status
+	sh = stash
+	sm = submodule
+
+	H = HEAD
+
+# [color]
+# 	diff = true
+# 	status = true
+# 	branch = true
+# 	interactive = true
+# 	ui = true
+# 	pager = true
+
+# [color "status"]
+# 	added = green
+# 	changed = cyan
+# 	removed = magenta # if only this worked :(
+# 	untracked = yellow
+
+# [color "diff"]
+# 	meta = yellow
+# 	old = magenta
+# 	new = green
+
+# [commit]
+# 	template = .gitmessage.txt
+
+[core]
+	excludesfile = *~, .DS_Store
+	editor = nano
+
+# [help]
+# 	autocorrect = 15
+
+# [push]
+# 	default = simple
+
+# [credential]
+# 	helper = osxkeychain
+
+# [difftool "Kaleidoscope"]
+# 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+# [diff]
+# 	tool = Kaleidoscope
+# [difftool]
+# 	prompt = false
+
+# [mergetool "Kaleidoscope"]
+# 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+# 	trustExitCode = true
+# [mergetool]
+# 	prompt = false
+# [merge]
+# 	tool = Kaleidoscope

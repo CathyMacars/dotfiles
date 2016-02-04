@@ -7,12 +7,13 @@ set horizontal-scroll-mode Off
 # ex: when you have a symlink directory
 # & you type it's first letters and press [tab]
 # it will auto-complete with a '/' at the end
-# just like a normal diractory would
+# just like a normal directory would
+# so it's easier to differentiate from symlinked files
 set mark-symlinked-directories on
 
 # ex: in ~, type 'cd d' + [tab] & get it auto-completed to 'cd Desktop'
 # press [tab] again and the auto-complete changes to 'cd Documents'
-# again, and so on, cycling through all folders that start with 'D'
+# again, and so on, cycling through all folders that start with 'd/D'
 TAB: menu-complete
 
 # ex: type a comand, say... 'ls'
@@ -23,6 +24,6 @@ TAB: menu-complete
 "\e[B": history-search-forward
 
 # ex: type [opt] + [right] or [left] arrow keys
-# you are now moving one word at a time
+# you are now moving one word at a time :)
 "\e[5C": forward-word
 "\e[5D": backward-word
