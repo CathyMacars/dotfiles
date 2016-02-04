@@ -1,9 +1,13 @@
 # Enable git branch name & states on prompt
-source ~/git-prompt.sh
+source ~/.git-prompt.sh # https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_UNTRACKEDFILES=true
 GIT_PS1_SHOWCOLORHINTS=true
 
-# My prompt
-PS1='\e[35m\]\@ \e[0m\]➝  \e[32m\]\u \e[0m\]@ \e[36m\]\h \e[0m\]➝  \e[33m\]\w\e[30m\]$(__git_ps1 "(%s)") \e[0m\]ϟ\n〉〉〉'
+# My prompt:
+# \e[...] = color:
+# 0m = white/black (theme default), 32m = green, 33m = yellow, 35m = red, 36m = blue
+#            \@ = time            \u = user           \h = host            \w = folder/file path                  \n = new line
+PS1='\e[35m\]\@ \e[0m\]➝  \e[32m\]\u \e[0m\]@ \e[36m\]\h \e[0m\]➝  \e[33m\]\w \e[30m\]$(__git_ps1 "(%s)") \e[0m\]ϟ\n〉〉〉'

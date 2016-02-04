@@ -1,11 +1,11 @@
 # Softwares
 install curl
 install maven
-install p7zip # for sublimeall
+install p7zip # for sublimall
 install trash
 install tree
 
-# Cask
+# Casks
 tap phinze/homebrew-cask
 install brew-cask
 

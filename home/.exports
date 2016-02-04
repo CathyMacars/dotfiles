@@ -1,6 +1,19 @@
 source ~/.path
-export PATH
-export EDITOR='subl -w'
-export BUNDLE_EDITOR="subl"
-export LSCOLORS=axaxaxaxaxaxaxaxaxaxax
-export JAVA_HOME="$(/usr/libexec/java_home)"
+
+# export PATH
+# export EDITOR='slime -w' # to get 'slime' command, run this ↓ on terminal
+# export BUNDLE_EDITOR="slime" # ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/slime
+# export LSCOLORS=axaxaxaxaxaxaxaxaxaxax
+# export JAVA_HOME="$(/usr/libexec/java_home)"
+# export NODE_PATH="/usr/local/lib/node_modules"
+# export GEM_HOME="/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/gems"
+
+case $(uname) in
+	'Linux')
+		export PATH="$HOME/.linuxbrew/bin:$PATH"
+		export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+		export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+	;;
+esac
+
+export HISTTIMEFORMAT="%d/%m/%y %T"

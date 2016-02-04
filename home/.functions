@@ -1,101 +1,115 @@
-# Make & change dir
-function mkcd() {
-  mkdir "$1"
-	cd "$1"
-  clear
+# Better make dir
+function makedir() {
+	mkdir "$1"
+	clear
 }
 
 # Better list
 function list() {
-  clear
-  cd "$1"
-	ls -a -Gp -F -h
-}
-
-# Touch & slime file
-function touchslime() {
-  touch "$1"
-  subl "$1"
+	# clear
+	ls -a -F -G # https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/ls.1.html
 }
 
 # Better change dir
 function changedir() {
-  cd "$1"
-  clear
+	cd "$1"
+	clear
 }
 
-## App/Script dependant
-# Remove → Trash
+# Turn Single App option on/off (use true/false)
+function singleapp() {
+	defaults write com.apple.dock single-app -bool "$1" && killall Dock
+}
+
+# Show which software 'version' flag to use
+function ver() {
+	echo '=========================';
+	echo '→ bower -v ';
+	echo '→ brew  -v ';
+	echo '→ mvn   -v '; # maven
+	echo '→ node  -v ';
+	echo '→ npm   -v ';
+	echo '→ ruby  -v ';
+	echo '-------------------------';
+	echo '→ java  -version '; # yeah, really... -_-
+	echo '-------------------------';
+	echo '→ bash  --version '; # -version works, but for consistency's sake...
+	echo '→ curl  --version ';
+	echo '→ git   --version ';
+	echo '→ grunt --version '; # -v/--v work, but outputs a warning. -ver/--ver and -version also work, but for consistency's sake...
+	echo '→ tree  --version ';
+	echo '=========================';
+}
+
+## Script dependant
+# Deploy
+# function deploy() {
+# 	"$1.sh"
+# }
+
+## Software dependant
+# Better touch (w/ Sublime)
+function touchslime() {
+	touch "$1"
+	slime "$1"
+}
+
+# Better rm (w/ Trash)
 function remove() {
  trash "$1"
  clear
  list
 }
 
-# Deploy
-function deploy() {
-  "$1.sh"
+# Update homesick dotfiles
+function hsupdate() {
+	homesick destroy dotfiles
+	homesick clone CathyMacars/dotfiles
+	homesick symlink dotfiles
 }
 
-# Show which software 'version' flag to use
-function ver() {
-  echo '====================';
-  echo '→ bower -v ';
-  echo '→ brew  -v ';
-  echo '→ mvn   -v '; # maven
-  echo '→ node  -v ';
-  echo '→ npm   -v ';
-  echo '→ ruby  -v ';
-  echo '--------------------';
-  echo '→ bash  --version '; # -version works, but for consistency's sake...
-  echo '→ curl  --version ';
-  echo '→ git   --version ';
-  echo '→ grunt --version '; # -v/--v work, but outputs a warning & -ver/--ver and -version work, but for consistency's sake...
-  echo '→ tree  --version ';
-  echo '====================';
+# Up date/grade all package managers & it's packages
+function pmupdate() {
+	clear
+	# echo "➠ This will up date/grade: Homebrew | npm | bower | Ruby | Homesick"
+	echo "➠ This will up date/grade: Homebrew | npm | RubyGems | Homesick"
+	echo "----------------------------------------------------------------------"
+	echo "HOMEBREW"
+	echo "➠ updates homebrew instelf"
+	echo "➠ upgrades installed softwares & taps"
+	echo "➠ uninstalls old versions of softwares & taps"
+	echo "----------------------------------------------------------------------"
+	sleep 1
+	brew update
+	brew upgrade
+	brew cleanup # --force -s
+	echo "----------------------------------------------------------------------"
+	echo "HOMEBREW ➠ DONE!"
+	echo "----------------------------------------------------------------------"
+	echo "NPM"
+	echo "➠ updates npm instelf"
+	echo "➠ updates installed global packages"
+	# echo "➠ removes extraneous packages"
+	echo "----------------------------------------------------------------------"
+	sleep 1
+	npm update npm -g
+	npm update -g
+	npm prune -g
+	echo "----------------------------------------------------------------------"
+	echo "NPM ➠ DONE! (remember to go update/prune your local packages)"
+	echo "----------------------------------------------------------------------"
+	echo "HOMESICK"
+	echo "➠ updates all castles"
+	echo "----------------------------------------------------------------------"
+	homesick pull --all
+	echo "----------------------------------------------------------------------"
+	echo "HOMESICK ➠ DONE!"
+	echo "----------------------------------------------------------------------"
+	sleep 1
+	clear
+	echo "➠ All package managers are up to date!"
 }
 
-# Turn Single App option on/off (use true/false)
-function singleapp() {
-  defaults write com.apple.dock single-app -bool "$1" && killall Dock
-}
-
-# Up date/grade all package managers & it's dependencies
-function pkgupfunc() {
-  clear
-  echo "➠ This will update: Homebrew, npm & Homesick"
-  echo "------------------------------------------------------------"
-  echo "HOMEBREW"
-  echo "➠ update (updates homebrew instelf)"
-  echo "➠ upgrade (upgrades installed packages)"
-  echo "➠ cleanup (uninstalls unused/old versions of packages)"
-  echo "------------------------------------------------------------"
-  sleep 1
-  brew update
-  brew upgrade
-  brew cleanup #--force -s
-  rm -rf $(brew --cache)
-  echo "------------------------------------------------------------"
-  echo "HOMEBREW ➠ DONE!"
-  echo "------------------------------------------------------------"
-  echo "NPM"
-  echo "➠ update npm -gf (updates npm instelf)"
-  echo "➠ update -g (updates installed global packages)"
-  echo "------------------------------------------------------------"
-  sleep 1
-  npm update npm -g #f
-  npm update -g
-  echo "------------------------------------------------------------"
-  echo "NPM ➠ DONE!"
-  echo "------------------------------------------------------------"
-  echo "HOMESICK ➠ PULL --ALL (updates all castles)"
-  echo "------------------------------------------------------------"
-  sleep 1
-  homesick pull --all
-  echo "------------------------------------------------------------"
-  echo "HOMESICK ➠ DONE!"
-  echo "------------------------------------------------------------"
-  sleep 1
-  clear
-  echo "➠ All package managers are up to date!"
+function startastrea() {
+	osascript -e 'tell application "Terminal" to activate' -e 'tell application "System Events" to tell process "Terminal" to keystroke "t" using command down' -e 'tell application "Terminal" to do script "echo hello" in selected tab of the front window' to the end of the osascript command.
 }

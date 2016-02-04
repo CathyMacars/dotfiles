@@ -1,30 +1,60 @@
-# Function dependant
-alias mkdir=mkcd
-alias ls=list
-alias touch=touchslime
-alias cd=changedir
-alias rm=remove
-alias pkgup=pkgupfunc
+# Function dependant (~/.functions)
+# alias mkdir=makedir
+# alias ls=list
+# alias touch=touchslime
+# alias cd=changedir
+# alias rm=remove
+alias pmup=pmupdate
+alias hsup=hsupdate
 
-# Change dir
-alias ~='cd ~'
-alias home='cd ~'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
+# List
+case $(uname) in
+	'Darwin')
+		alias la='ls -a -F -G'
+		alias ll='ls -l -F -G'
+	;;
+	'Linux')
+		alias la='ls -a -F --color'
+		alias ll='ls -l -F --color'
+	;;
+esac
 
 # App specific/dependant
-alias slime=subl
+alias br=brew
+alias bo=bower
 alias g=git
-alias npmls=npmlist # broken → 'npm ls --depth=0 "$@" 2>/dev/null' / using npm-list instead
+alias groa='git remote add origin' # ADD
+alias gros='git remote set-url origin' # SET
+alias grou='git remote update origin --prune' # UPDATE
+alias gr=grunt
+alias gu=gulp
 alias hs=homesick
+alias hsd='homesick destroy'
+alias hsc='homesick clone'
+alias hsl='homesick symlink' # LINK
+alias n=npm
+alias nls='npm list --depth=0 2>/dev/null'
+alias npmls='npm list --depth=0 2>/dev/null'
+alias slime=subl
+alias remds='find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch'
 
-# Sensitive stuff
-source ~/.extra
+alias brewcaskaudit='while IFS= read -r _c _ ; do echo -e "$_c =>" ; brew cask audit "$_c" ; done <<<"$(brew cask list)"'
 
-# Project specific
-alias cdastrea='cd ~/Sites/astrea'
-alias cdcathy='cd ~/Sites/cathymacars'
-alias cdfine='cd ~/Sites/finedesign'
-alias cddot='cd ~/Sites/dotfiles'
+# Sensitive stuff (on .gitignore)
+# source ~/.extra
+
+case $(uname) in
+	'Linux')
+		alias cdp='cd /opt/bitnami/apps/wordpress/'
+	;;
+esac
+
+alias cpdot='g c -m "Update" --amend && g ps --force'
+
+# General
+alias c=clear
+
+# Simulate OSX's pbcopy on Linux
+if [ $(uname) = 'Linux' ]; then
+	alias pbcopy='xclip -sel clip <'
+fi
