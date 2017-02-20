@@ -1,7 +1,6 @@
 # Softwares
 install curl
 install maven
-install p7zip # for sublimall
 install trash
 install tree
 

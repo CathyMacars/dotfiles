@@ -10,7 +10,16 @@ source ~/.bash_prompt
 source ~/.git-completion.bash # https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 
 # Hostname & working directory on tab name (good for sshing)
-PROMPT_COMMAND='echo -ne "\033]0; ${HOSTNAME} ➝ ${PWD##*/} \007"'
+# PROMPT_COMMAND='echo -ne "\033]0; ${HOSTNAME} ➝ ${PWD##*/} $(__git_ps1 "(%s)")\007"'
+
+case $(uname) in
+	'Darwin')
+		PROMPT_COMMAND='echo -ne "\033]0; ${HOSTNAME} @ ${PWD##*/} $(__git_ps1) \007"'
+	;;
+	'Linux')
+		PROMPT_COMMAND='echo -ne "\033]0; ${HOSTNAME} @ $(__git_ps1) \007"'
+	;;
+esac
 
 # Enable alias g=git to auto-complete w/ branch names
 complete -o default -o nospace -F _git g

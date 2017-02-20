@@ -9,6 +9,9 @@
 # export GEM_HOME="/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/gems"
 
 case $(uname) in
+	'Darwin')
+		export PATH="/usr/local/opt/node@5/bin:$PATH"
+	;;
 	'Linux')
 		export PATH="$HOME/.linuxbrew/bin:$PATH"
 		export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
