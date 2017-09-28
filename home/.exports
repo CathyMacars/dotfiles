@@ -1,4 +1,4 @@
-# source ~/.path
+source ~/.path
 
 # export PATH
 # export EDITOR='slime -w' # to get 'slime' command, run this ↓ on terminal
@@ -18,3 +18,5 @@ case $(uname) in
 		export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 	;;
 esac
+
+export HISTTIMEFORMAT="%d/%m/%y %T"

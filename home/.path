@@ -12,3 +12,4 @@
 # PATH=$PATH:~/code/git-friendly
 # # ...
 # export PATH
+export PATH="/usr/local/opt/node@6/bin:$PATH"

@@ -15,12 +15,13 @@
 	ch = checkout
 	cl = clone
 
-	d = diff
-	di = diff
+	d = diff -w
+	di = diff -w
 	dt = difftool
 
 	i = init
 	in = init
+
 	l = log --graph --pretty=format:'%C(yellow)[%h] %C(cyan)%an %C(green)(%cr) %C(reset)%s'
 	lg = log --graph --pretty=format:'%C(yellow)[%h] %C(cyan)%an %C(green)(%cr) %C(reset)%s'
 
@@ -41,6 +42,9 @@
 	st = status
 	sh = stash
 	sm = submodule
+	sw = show -w
+
+	tr = push -u origin HEAD
 
 	H = HEAD
 

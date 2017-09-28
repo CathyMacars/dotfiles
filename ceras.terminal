@@ -174,7 +174,7 @@
 	AAAAAAAAAM4=
 	</data>
 	<key>CursorType</key>
-	<integer>1</integer>
+	<integer>0</integer>
 	<key>DisableANSIColor</key>
 	<false/>
 	<key>Font</key>
@@ -195,7 +195,7 @@
 	<key>Linewrap</key>
 	<true/>
 	<key>ProfileCurrentVersion</key>
-	<real>2.04</real>
+	<real>2.0499999999999998</real>
 	<key>SelectionColor</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGFRZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
@@ -254,7 +254,7 @@
 	<key>VisualBellOnlyWhenMuted</key>
 	<false/>
 	<key>columnCount</key>
-	<integer>1000</integer>
+	<integer>200</integer>
 	<key>mouseLeftClick</key>
 	<data>
 	BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU051bWJlcgCEhAdOU1ZhbHVlAISECE5TT2Jq
@@ -283,7 +283,7 @@
 	<key>name</key>
 	<string>ceras</string>
 	<key>rowCount</key>
-	<integer>25</integer>
+	<integer>50</integer>
 	<key>shellExitAction</key>
 	<integer>1</integer>
 	<key>type</key>

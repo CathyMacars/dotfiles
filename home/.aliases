@@ -22,30 +22,50 @@ esac
 # App specific/dependant
 alias br=brew
 alias bo=bower
+
 alias g=git
-alias groa='git remote add origin' # ADD
-alias gros='git remote set-url origin' # SET
-alias grou='git remote update origin --prune' # UPDATE
+alias groa='git remote add origin'
+alias gros='git remote set-url origin'
+alias grou='git remote update origin --prune'
+alias clmb='git branch | ack master | xargs git branch -D'
+alias crmb='git branch -r --merged master | ack master | sed -e "s/\// :/" | xargs -n2 git push'
 alias gr=grunt
 alias gu=gulp
+
 alias hs=homesick
 alias hsd='homesick destroy'
 alias hsc='homesick clone'
-alias hsl='homesick symlink' # LINK
-alias n=npm
+alias hsl='homesick symlink'
+
+# alias n=npm
 alias nls='npm list --depth=0 2>/dev/null'
 alias npmls='npm list --depth=0 2>/dev/null'
+
 alias slime=subl
+
 alias remds='find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch'
+
+alias brewcaskaudit='while IFS= read -r _c _ ; do echo -e "$_c =>" ; brew cask audit "$_c" ; done <<<"$(brew cask list)"'
+
+alias rnhdlsprod='protractor protractor.conf.js'
+alias rnhdlshomol='protractor protractor.conf.js --baseUrl="http://homolog.aurum.com.br"'
+alias rnhdlslocal='protractor protractor.conf.js --baseUrl="http://aurum/"'
+alias rnmltcpb='./testmulti --baseUrl="http://localhost/aurum/htdocs"' # non-headless chrome & firefox
+alias runastrea='npm install && bower install && gulp build && ./runastrea'
 
 # Sensitive stuff (on .gitignore)
 # source ~/.extra
 
 case $(uname) in
 	'Linux')
-		alias cdp='cd /opt/bitnami/apps/wordpress/'
+		alias cdp='cd /opt/bitnami/apps/'
+		alias aptls='apt list --installed'
+		alias aptup='apt-get install --only-upgrade'
 	;;
 esac
+
+alias cdbl='cd htdocs/blog/wp-content/themes/'
+alias cdsi='cd ../../../../'
 
 alias cpdot='g c -m "Update" --amend && g ps --force'
 

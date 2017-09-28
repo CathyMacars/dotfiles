@@ -1,5 +1,5 @@
 # Enable git branch name & states on prompt
-source ~/.git-prompt.sh # https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+source ~/.git-prompt.sh # `curl -O https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh`
 
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWSTASHSTATE=true
@@ -7,7 +7,9 @@ GIT_PS1_UNTRACKEDFILES=true
 GIT_PS1_SHOWCOLORHINTS=true
 
 # My prompt:
-# \e[...] = color:
-# 0m = white/black (theme default), 32m = green, 33m = yellow, 35m = red, 36m = blue
-#            \@ = time |          \u = user |         \h = host |          \w = folder/file path |                \n = new line
-PS1='\e[35m\]\@ \e[0m\]➝  \e[32m\]\u \e[0m\]@ \e[36m\]\h \e[0m\]in  \e[33m\]\w \e[30m\]$(__git_ps1) \e[0m\]ϟ\n〉〉〉'
+# "\e[...m\]" = color, where "..." is a number:
+# 0 = white/black (theme default), 30=black, 31=red, 32=green, 33=yellow, 34=blue, 35=magenta, 36=cyan, 37=white
+# "\x" = info, where "x" is a symbol or letter:
+# @ = time, u = user, h = host, w = folder, n = new line
+# anything else is just static string :)
+PS1='\e[32m\]\@ \e[30m\]➝ \e[34m\]\u \e[30m\]@ \e[33m\]\h \e[30m\]in \e[31m\]\w \e[30m\]$(__git_ps1) \e[37m\]ϟ\n〉〉〉\e[30m\]'

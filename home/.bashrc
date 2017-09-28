@@ -1,4 +1,4 @@
-# Enable terminal colors for ls
+# Enable terminal colors for the `ls` command
 # CLICOLOR=1
 
 # Sources (the order matters!)
@@ -29,3 +29,10 @@ complete -o default -o nospace -F _git_push ps # only completes 'origin'
 # ulimit -n 1024
 # ulimit -u 1024
 ulimit -S -n 2048
+
+
+# Enables extended glob patterns
+shopt -s extglob
+
+# Disables clash of history with extended glob patterns commands
+set +H

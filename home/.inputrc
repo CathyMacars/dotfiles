@@ -19,7 +19,7 @@ TAB: menu-complete
 # ex: type a comand, say... 'ls'
 # use [up] or [down] arrow keys to complete
 # with possible combinations for that comand
-# (parameters, folder & file names, etc)
+# (flags, parameters, folder names, file names, etc)
 "\e[A": history-search-backward
 "\e[B": history-search-forward
 
